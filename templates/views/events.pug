@@ -1,0 +1,57 @@
+extends ../layouts/default
+
+block intro
+  .container
+    //-h1 ok
+  
+block content
+  .container
+    #calendar
+      if events.length
+        each event in events
+          h2= event.title
+          div!= event.description
+          p= event.get('prettyDate')
+            <br>
+            = event.get('prettyTime')
+          if event.workingGroup.length
+            p Working Groups:
+              ul
+                for wg in event.workingGroup
+                  li: a(href=`/working-groups/${wg.key}`)= wg.name
+          if event.campaign.length
+            p Campaigns:
+              ul
+                for campaign in event.campaign
+                  li: a(href=`/campaigns/${campaign.slug}`)= campaign.title
+      else
+        h3.text-muted There are no events at this time.
+
+block css
+  style.
+    #calendar {
+    }
+    .clndr-table {
+      width: 80%;
+    }
+    td {
+      border: 1px solid rgba(0,0,0, .2);
+      padding: 3px
+    }
+    thead td {
+      text-align: center;
+    }
+    tbody td {
+      height: 60px
+    }
+    .day-contents {
+      height: 100%
+    }
+
+block js
+  script(src='/js/underscore-min.js')
+  script(src='/js/moment.min.js')
+  script(src='/js/clndr.min.js')
+  
+  script.
+    //-$('#calendar').clndr()

@@ -1,0 +1,16 @@
+extends ../layouts/default
+
+block intro
+  .container
+    h1 Campaign: #{campaign.title}
+  
+block content
+  .container
+    p= campaign.description
+
+    h2 Events
+    for event in events
+      h3= event.title
+      div!= event.description
+      p= event.start
+      p= event.end

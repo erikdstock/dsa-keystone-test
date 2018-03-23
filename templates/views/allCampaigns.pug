@@ -1,0 +1,16 @@
+extends ../layouts/default
+
+block intro
+  .container
+    h1 Campaigns
+  
+block content
+  .container
+    if campaigns.length
+      each group in campaigns
+        h2= group.title
+        p= group.description
+        p: a(href=group.slug) Learn More
+        //-p: a(href=group.contact)=group.contact
+    else
+      h3.text-muted No working groups to display

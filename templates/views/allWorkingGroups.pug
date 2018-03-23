@@ -1,0 +1,16 @@
+extends ../layouts/default
+
+block intro
+  .container
+    h1 Working Groups
+  
+block content
+  .container
+    if workingGroups.length
+      each group in workingGroups
+        h2= group.name
+        p= group.description
+        p: a(href=group.key) Learn More
+        p: a(href=group.contact)=group.contact
+    else
+      h3.text-muted No working groups to display

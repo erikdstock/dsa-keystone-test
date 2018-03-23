@@ -1,23 +1,21 @@
 extends ../layouts/default
 
 block content
-	.container: .jumbotron
-		img(src='/images/logo.svg', width='160')
-		h1 Welcome
-		p This is your new <a href='http://keystonejs.com' target='_blank'>KeystoneJS</a> website.
-		p It includes the latest versions of
-			| <a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a>
-			| and <a href='http://www.jquery.com/' target='_blank'>jQuery</a>.
-		p Visit the <a href='http://keystonejs.com/guide' target='_blank'>Getting Started</a> guide to learn how to customise it.
-		hr
-		if user && user.canAccessKeystone
-			p
-				a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
-		else
-			p We have created a default Admin user for you with the email <strong>aneesh.bhoopathy@gmail.com</strong> and the password <strong>password</strong>.
-			p
-				a(href='/keystone/signin', style='margin-right: 10px').btn.btn-lg.btn-primary Sign in
-				|  to use the Admin UI.
-		hr
-		p Remember to <a href='https://github.com/keystonejs/keystone' target='_blank'>Star KeystoneJS on GitHub</a> and
-			| <a href='https://twitter.com/keystonejs' target='_blank'>follow @keystonejs</a> on twitter for updates.
+  .container: .jumbotron
+    h1 Welcome to NYC-DSA!
+    p New York City Democratic Socialists is the NYC local of Democratic Socialists of America, the largest socialist organization in the United States with about 30,000 members (as of November 2017). NYC-DSA is run by its 3,000+ members and activists who are working together to build a democratic socialist organization in the five boroughs.
+    p We are socialists because we share a vision of a humane social order based on popular control of resources and production, economic planning, equitable distribution, feminism, racial equality, and non-oppressive relationships.
+    p We are socialists because we are opposed to an economy organized for private profit that produces gross inequalities of wealth and power, discrimination based on race and sex, and brutality and violence in defense of the status quo.
+    p We are socialists because we want to work together to develop a concrete strategy for achieving that vision, for achieving a transition to democratic socialism in America. We believe that such a strategy must acknowledge the class structure of American society and that this class structure means that there is a basic conflict of interest between those sectors with enormous economic power and the vast majority of the population. And we believe that only democratic movements and socialist parties can lead the way to a better world.
+    p If you want to build a better world with us, join us!
+
+    hr
+    if user && user.canAccessKeystone
+      p
+        a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
+    else
+      p We have created a default Admin user for you with the email <strong>aneesh.bhoopathy@gmail.com</strong> and the password <strong>password</strong>.
+      p
+        a(href='/keystone/signin', style='margin-right: 10px').btn.btn-lg.btn-primary Sign in
+        |  to use the Admin UI.
+    hr

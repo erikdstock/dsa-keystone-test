@@ -1,0 +1,25 @@
+extends ../layouts/default
+
+block intro
+  .container
+    h1= workingGroup.name
+  
+block content
+  .container
+    p= workingGroup.description
+
+    h2 Events
+    for event in events
+      h3= event.title
+      div!= event.description
+      p= event.start
+      p= event.end
+
+    h2 Campaigns
+    for campaign in campaigns
+      h3= campaign.title
+      //-div!= campaign.description
+
+    //-description: { type: Types.Textarea, height: 180, required: false },
+    //-contact: { type: Types.Email, required: false },
+    //-extended: { type: Types.Html, wysiwyg: true, height: 400 }
