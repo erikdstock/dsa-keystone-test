@@ -1,0 +1,71 @@
+version: "3"
+services:
+  mongodb:
+    image: mongo:latest
+    # Sometimes i've found that exposing these volumes becomes more trouble than it's worth... 
+    # volumes:
+    #   - "./mongo/data/db:/data/db/"
+  web:
+    build: ./web
+    volumes:
+      - "./web:/usr/src/app"
+    env_file: .env
+    command: yarn start
+    links:
+      - mongodb
+    ports:
+      - "3000:3000"
+
+# Inspired by/cribbed from https://github.com/JamesMillercus/Keystone/blob/master/docker-compose.yml
+  # nginx:
+  #   build: ./web/nginx
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - home
+  #     - admin
+  #     - audiences
+  # redis:
+  #   image: "redis:alpine"
+  # home:
+  #   build: ./web/home
+  #   volumes:
+  #     - "./web/home:/usr/src/app"
+  #   env_file: .env
+  #   command: gulp
+  # admin:
+  #   build: ./web/admin
+  #   volumes:
+  #     - "./web/admin:/usr/src/app"
+  #   env_file: .env
+  #   command: gulp
+  # audiences:
+  #   build: ./web/audiences
+  #   volumes:
+  #     - "./web/audiences:/usr/src/app"
+  #   env_file: .env
+  #   command: gulp
+  # users:
+  #   build: ./web/users
+  #   volumes:
+  #     - "./web/users:/usr/src/app"
+  #   env_file: .env
+  #   command: gulp
+  # keystone:
+  #   build: ./web/keystone
+  #   volumes:
+  #     - "./web/keystone:/usr/src/app"
+  #   ports:
+  #     - " :4000"
+  #   command: gulp
+
+  # command: bash -c "npm update && npm install"
+    
+
+  # to start: docker-compose up
+
+  # Docker Commands:
+    # command: node ./dist/index.js
+    # docker stop $(docker ps -a -q)
+    # docker rm $(docker ps -a -q)
+    # docker rmi $(docker images -a -q)
